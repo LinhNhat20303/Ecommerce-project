@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import javax.print.DocFlavor;
-
 public class RegisterPage {
     WebDriver driver;
 
@@ -17,6 +15,18 @@ public class RegisterPage {
     By passwordInputLocator = By.id("password");
     By confirmPasswordInputLocator = By.id("confirmation");
     By registerButton = By.xpath("//button[@title='Register']");
+
+    public RegisterPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void ClickMyAccountLink() {
+        driver.findElement(myAccountLink).click();
+    }
+
+    public void ClickCreateAccount() {
+        driver.findElement(createAccountLink).click();
+    }
 
     public void enterFirstName(String firstName) {
         WebElement firstNameElement = driver.findElement(firstNameInputLocator);
