@@ -57,4 +57,8 @@ public class RegisterPage {
         confirmPasswordElement.clear();
         confirmPasswordElement.sendKeys(confirmPassword);
     }
+
+    public void clickRegister() {
+        driver.findElement(registerButton).click();
+    }
 }
