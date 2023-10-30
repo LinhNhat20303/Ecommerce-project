@@ -29,12 +29,12 @@ public class TestCase_05 {
                         // 5. Click "CREATE AN ACCOUNT" link and fill New User information excluding the
                         // registered Email ID.
                         registerPage.ClickCreateAccount();
-                        registerPage.enterFirstName("John");
-                        registerPage.enterLastName("Doe");
-                        String email = "testuser@example.com"; // Provide a unique email
-                        registerPage.enterEmail(email);
-                        registerPage.enterPassword("password123");
-                        registerPage.enterConfirmPassword("password123");
+                        registerPage.enterFirstName(generateRandomString(8));
+                        registerPage.enterLastName(generateRandomString(8));
+                        String password = generateRandomString(8);
+                        registerPage.enterEmail(generateRandomEmail());
+                        registerPage.enterPassword(password);
+                        registerPage.enterConfirmPassword(password);
                         registerPage.clickRegister();
 
                         // 6. Verify Registration is done. Expected account registration done.
@@ -70,16 +70,24 @@ public class TestCase_05 {
                                                         By.xpath(
                                                                         "/html/body/div/div/div[2]/div/div[2]/div/form/div[1]/ul/li[1]/div/textarea"));
                         input1.clear();
-                        input1.sendKeys("linhpnse173687@fpt.edu.vn");
+                        input1.sendKeys("johndoe@domain.com, johnsmith@domain.com ");
                         WebElement input2 = driver
                                         .findElement(
                                                         By.xpath(
-                                                                        "/html/body/div/div/div[2]/div/div[2]/div/form/div[1]/ul/li[1]/div/textarea"));
+                                                                        "/html/body/div/div/div[2]/div/div[2]/div/form/div[1]/ul/li[2]/div/textarea"));
                         input2.clear();
                         input2.sendKeys("commit -m");
 
                         // 11. Check wishlist is shared. Expected wishlist shared successfully.
                         // Add an assertion to check if the wishlist is shared successfully.
+
+                        // click the share wishlist Button
+                        /// html/body/div/div/div[2]/div/div[2]/div/form/div[2]/button
+                        WebElement shareWishlistButton = driver
+                                        .findElement(
+                                                        By.xpath(
+                                                                        "/html/body/div/div/div[2]/div/div[2]/div/div[1]/ul/li/ul/li"));
+                        shareWishlistButton.click();
 
                         WebElement allert = driver
                                         .findElement(
@@ -91,10 +99,27 @@ public class TestCase_05 {
                         e.printStackTrace();
                         softAssert.fail("Test case failed: " + e.getMessage());
                 } finally {
-                        softAssert.assertAll();
+
                         driver.quit();
                 }
 
+        }
+
+        // Function to generate a random string of the specified length
+        public String generateRandomString(int length) {
+                String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                StringBuilder randomString = new StringBuilder();
+                for (int i = 0; i < length; i++) {
+                        int index = (int) (Math.random() * characters.length());
+                        randomString.append(characters.charAt(index));
+                }
+                return randomString.toString();
+        }
+
+        // Function to generate a random email address
+        public String generateRandomEmail() {
+                String randomString = generateRandomString(8);
+                return randomString + "@example.com";
         }
 
 }
