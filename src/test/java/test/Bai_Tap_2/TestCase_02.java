@@ -1,4 +1,4 @@
-package test.Bai_Tap;
+package test.Bai_Tap_2;
 
 import java.time.Duration;
 
@@ -11,7 +11,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 import driver.driverFactory;
 
-public class TestCase02 {
+public class TestCase_02 {
     /*
      * 
      * Test Steps:

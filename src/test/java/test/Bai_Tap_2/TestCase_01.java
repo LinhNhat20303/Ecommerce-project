@@ -1,4 +1,4 @@
-package test.Bai_Tap;
+package test.Bai_Tap_2;
 
 import driver.driverFactory;
 import org.openqa.selenium.By;
@@ -11,7 +11,7 @@ import java.time.Duration;
 
 import static org.testng.AssertJUnit.assertEquals;
 
-public class TestCase01 {
+public class TestCase_01 {
     @Test
     public void TestCase01() {
 
