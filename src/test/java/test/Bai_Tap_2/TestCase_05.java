@@ -74,7 +74,7 @@ public class TestCase_05 {
                         WebElement input2 = driver
                                         .findElement(
                                                         By.xpath(
-                                                                        "/html/body/div/div/div[2]/div/div[2]/div/form/div[1]/ul/li[2]/div/textarea"));
+                                                                        ""));
                         input2.clear();
                         input2.sendKeys("commit -m");
 

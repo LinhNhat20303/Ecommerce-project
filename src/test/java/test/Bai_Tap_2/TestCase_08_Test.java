@@ -1,5 +1,6 @@
 package test.Bai_Tap_2;
 
+import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import driver.driverFactory;
 import org.openqa.selenium.WebDriver;
@@ -32,6 +33,7 @@ public class TestCase_08_Test {
         // Step 5: Verify Grand Total is changed
         String grandTotal = page.getGrandTotal();
         assert !grandTotal.equals(OldgrandTotal) : "Failed update Grand Total!";
+        // AssertJUnit.assertNotSame(OldgrandTotal, grandTotal);
         System.out.println("Grand Total Updated");
 
         // Step 6: Complete Billing & Shipping Information
